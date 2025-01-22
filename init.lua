@@ -32,6 +32,13 @@ dofile(vim.g.base46_cache .. "statusline")
 require "options"
 require "nvchad.autocmds"
 
+-- Auto resize panes when resizing nvim window
+local autocmd = vim.api.nvim_create_autocmd
+autocmd("VimResized", {
+  pattern = "*",
+  command = "tabdo wincmd =",
+})
+
 vim.schedule(function()
   require "mappings"
 end)
