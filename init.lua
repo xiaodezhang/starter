@@ -39,6 +39,8 @@ autocmd("VimResized", {
   command = "tabdo wincmd =",
 })
 
+vim.opt.colorcolumn = '79'
+
 vim.schedule(function()
   require "mappings"
 end)
