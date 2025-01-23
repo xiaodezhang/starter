@@ -36,10 +36,11 @@ return {
     lazy = false,
   },
 
-  {
-    'RRethy/vim-illuminate',
-    lazy = false,
-  },
+  -- 这个插件会导致卡顿
+  -- {
+  --   'RRethy/vim-illuminate',
+  --   lazy = false,
+  -- },
   {
     'kevinhwang91/nvim-hlslens',
     lazy = false,
@@ -55,10 +56,10 @@ return {
     "equalsraf/neovim-gui-shim",
     lazy = false,
   },
-  {
-    "vim-scripts/a.vim",
-    lazy = false,
-  },
+  -- {
+  --   "vim-scripts/a.vim",
+  --   lazy = false,
+  -- },
   {
     "mfussenegger/nvim-dap",
     lazy = false,
