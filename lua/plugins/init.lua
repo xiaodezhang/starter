@@ -52,78 +52,74 @@ return {
     'nvim-treesitter/nvim-treesitter-textobjects',
     lazy = false,
   },
-  {
-    "equalsraf/neovim-gui-shim",
-    lazy = false,
-  },
   -- {
   --   "vim-scripts/a.vim",
   --   lazy = false,
   -- },
-  {
-    "mfussenegger/nvim-dap",
-    lazy = false,
-  },
-  {
-    "mfussenegger/nvim-dap-python",
-    lazy = false,
-    config = function()
-      require('dap-python').setup("python")
-      local ppath = '${workspaceFolder}/env/Scripts/python'
-      if vim.fn.filereadable(ppath) == 1 then
-        require('dap').configurations.python = {
-          {
-            type = 'python',
-            request = 'launch',
-            name = 'Launch file',
-            program = '${file}',
-            pythonPath = ppth,
-            cwd = '${workspaceFolder}',
-            justMyCode = false
-          },
-        }
-      else 
-        require('dap').configurations.python = {
-          {
-            type = 'python',
-            request = 'launch',
-            name = 'Launch file',
-            program = '${file}',
-            cwd = '${workspaceFolder}',
-            justMyCode = false
-          },
-        }
-      end
-    end,
-  },
-  {
-    "theHamsta/nvim-dap-virtual-text",
-    lazy = false,
-    config = function()
-      require("nvim-dap-virtual-text").setup()
-    end,
-  },
-  { "rcarriga/nvim-dap-ui",
-    dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"},
-    lazy = false,
-    config = function()
-      local dap, dapui = require("dap"), require("dapui")
-
-      dapui.setup()
-      dap.listeners.before.attach.dapui_config = function()
-        dapui.open()
-      end
-      dap.listeners.before.launch.dapui_config = function()
-        dapui.open()
-      end
-      -- dap.listeners.before.event_terminated.dapui_config = function()
-      --   dapui.close()
-      -- end
-      -- dap.listeners.before.event_exited.dapui_config = function()
-      --   dapui.close()
-      -- end
-    end,
-  },
+  -- {
+  --   "mfussenegger/nvim-dap",
+  --   lazy = false,
+  -- },
+  -- {
+  --   "mfussenegger/nvim-dap-python",
+  --   lazy = false,
+  --   config = function()
+  --     require('dap-python').setup("python")
+  --     local ppath = '${workspaceFolder}/env/Scripts/python'
+  --     if vim.fn.filereadable(ppath) == 1 then
+  --       require('dap').configurations.python = {
+  --         {
+  --           type = 'python',
+  --           request = 'launch',
+  --           name = 'Launch file',
+  --           program = '${file}',
+  --           pythonPath = ppth,
+  --           cwd = '${workspaceFolder}',
+  --           justMyCode = false
+  --         },
+  --       }
+  --     else 
+  --       require('dap').configurations.python = {
+  --         {
+  --           type = 'python',
+  --           request = 'launch',
+  --           name = 'Launch file',
+  --           program = '${file}',
+  --           cwd = '${workspaceFolder}',
+  --           justMyCode = false
+  --         },
+  --       }
+  --     end
+  --   end,
+  -- },
+  -- {
+  --   "theHamsta/nvim-dap-virtual-text",
+  --   lazy = false,
+  --   config = function()
+  --     require("nvim-dap-virtual-text").setup()
+  --   end,
+  -- },
+  -- { "rcarriga/nvim-dap-ui",
+  --   dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"},
+  --   lazy = false,
+  --   config = function()
+  --     local dap, dapui = require("dap"), require("dapui")
+  --
+  --     dapui.setup()
+  --     dap.listeners.before.attach.dapui_config = function()
+  --       dapui.open()
+  --     end
+  --     dap.listeners.before.launch.dapui_config = function()
+  --       dapui.open()
+  --     end
+  --     -- dap.listeners.before.event_terminated.dapui_config = function()
+  --     --   dapui.close()
+  --     -- end
+  --     -- dap.listeners.before.event_exited.dapui_config = function()
+  --     --   dapui.close()
+  --     -- end
+  --   end,
+  -- },
   {
     "ThePrimeagen/harpoon",
     config = function()
