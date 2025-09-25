@@ -40,7 +40,11 @@ autocmd("VimResized", {
 })
 
 vim.opt.colorcolumn = '79'
+-- 设置 Consolas 字体，字号 12
+vim.opt.guifont = { "Consolas", ":h12" }
 
 vim.schedule(function()
   require "mappings"
 end)
+
+vim.api.nvim_set_keymap('n', '<F5>', ':silent !start cmd /c start.bat<CR>', { noremap = true, silent = true })
