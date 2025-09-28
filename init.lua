@@ -48,3 +48,8 @@ vim.schedule(function()
 end)
 
 vim.api.nvim_set_keymap('n', '<F5>', ':silent !start cmd /c start.bat<CR>', { noremap = true, silent = true })
+
+-- F6 打开 PowerShell
+vim.keymap.set("n", "<F6>", function()
+  vim.cmd("!start pwsh -NoExit -Command \"cd " .. vim.fn.getcwd() .. "\"")
+end, { silent = true, desc = "Open pwsh in current working dir" })
