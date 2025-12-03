@@ -60,3 +60,12 @@ vim.keymap.set("n", "<leader>gg", "<cmd>Neogit<cr>", { desc = "Open Neogit UI" }
 vim.keymap.set("n", "<F6>", function()
   vim.cmd("!start pwsh -NoExit -Command \"cd " .. vim.fn.getcwd() .. "\"")
 end, { silent = true, desc = "Open pwsh in current working dir" })
+
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  callback = function()
+    local p = vim.fn.expand("%:p")
+    if p:match("^C:/Windows") or p:match("^C:/Program Files") then
+      vim.b.watch_disable = true
+    end
+  end,
+})
